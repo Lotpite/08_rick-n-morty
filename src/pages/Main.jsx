@@ -15,7 +15,6 @@ export const Main = () => {
 
     useEffect(() => {
         let charList = checkInitialList('charList')
-        console.log(process.env.GOOGLE_API_KEY)
         if (charList) {
             setCharacterList(charList.newCharList)
             setPage(charList.page)
