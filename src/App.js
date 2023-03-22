@@ -24,8 +24,8 @@ const App = () => {
         <BrowserRouter>
           <AppContainer>
             <Routes>
-              <Route path="/" element={<Main/>}/>
-              <Route path="/:id" element={<Description/>}/>
+              <Route path="/08_rick-n-morty/" element={<Main/>}/>
+              <Route path="/08_rick-n-morty/:id" element={<Description/>}/>
             </Routes>
             {!user 
             ? <Login setUser={setUser}/>

@@ -11,6 +11,7 @@ export const Login = ({setUser}) => {
     <GoogleLogin
         type='icon'
         size="small"
+        
         onSuccess={credentialResponse => {
             setUser(login(credentialResponse))
         }}
