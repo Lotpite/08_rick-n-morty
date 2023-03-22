@@ -11,14 +11,14 @@ import { Logout } from "./components/Logout";
 const App = () => {
 
   const [user, setUser] = useState('')
-
+  const google_api_key = process.env.REACT_APP_GOOGLE_API_KEY
   useEffect(() => {
     const candidate = JSON.parse(localStorage.getItem('user'))
     candidate && setUser(candidate)
   }, [])
 
   return (
-    <GoogleOAuthProvider clientId='186186257138-i9h7msuhg0ru968697g6te7nh15jngfp.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId={google_api_key}>
       <StyledApp>
         <GlobalStyle/>
         <BrowserRouter>
