@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Main } from "./pages/Main";
+import { Description } from "./pages/Description";
+import { AppContainer, GlobalStyle, StyledApp } from "./styles/app.styled";
+import { BrowserRouter, Routes, Route } from 'react-router-dom' 
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useEffect, useState } from "react";
+import { Login } from "./components/Login";
+import { Logout } from "./components/Logout";
 
-function App() {
+
+const App = () => {
+
+  const [user, setUser] = useState('')
+
+  useEffect(() => {
+    const candidate = JSON.parse(localStorage.getItem('user'))
+    candidate && setUser(candidate)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GoogleOAuthProvider clientId='186186257138-i9h7msuhg0ru968697g6te7nh15jngfp.apps.googleusercontent.com'>
+      <StyledApp>
+        <GlobalStyle/>
+        <BrowserRouter>
+          <AppContainer>
+            <Routes>
+              <Route path="/" element={<Main/>}/>
+              <Route path="/:id" element={<Description/>}/>
+            </Routes>
+            {!user 
+            ? <Login setUser={setUser}/>
+            : <Logout userName={user.name} userPicture={user.picture} setUser={setUser}/>}
+          </AppContainer>
+        </BrowserRouter>
+      </StyledApp>
+    </GoogleOAuthProvider>
   );
 }
 
