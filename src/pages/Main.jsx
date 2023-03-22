@@ -81,7 +81,7 @@ export const Main = () => {
             :<h1>Oops, something went wrong</h1>}
         {page === 42 
         ? <></>
-        : <LoadMore onClick={loading ? () => false : () => loadMoreCharacters()} isLoading={loading}>Load more'</LoadMore>}
+        : <LoadMore onClick={loading ? () => false : () => loadMoreCharacters()} isLoading={loading}>Load more</LoadMore>}
     </MainPage>
   )
 }
