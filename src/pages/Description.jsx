@@ -37,7 +37,7 @@ export const Description = () => {
 
   return (
     <DescriptionWrapper>
-        <StyledLink to="/">
+        <StyledLink to="/08_rick-n-morty">
           <StyledButton>
             <Icon imgName="arrowLeft" text="GO BACK"/>
           </StyledButton>

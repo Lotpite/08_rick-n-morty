@@ -58,7 +58,7 @@ export const Main = () => {
         return (
             <CharacterList>
                 {list.length > 0    
-                ? list.map((char, i) => <StyledLink to={`/${char.id}`} key={char.id}><Card  id={char.id} name={char.name} src={char.image} specie={char.species}/></StyledLink>) 
+                ? list.map((char, i) => <StyledLink to={`/08_rick-n-morty/${char.id}`} key={char.id}><Card  id={char.id} name={char.name} src={char.image} specie={char.species}/></StyledLink>) 
                 : <div></div>
                 }
             </CharacterList>
